@@ -3,8 +3,8 @@ function deepTraversal1 (node) {
     if (!node || node.length < 1) {
         return;
     }
-    for (var i = 0; i < node.length; i++) {
-        var childrens = node.children;
+    for (let i = 0; i < node.length; i++) {
+        const childrens = node.children;
         console.log(node[i].name)
         if (childrens && childrens.length > 0) {
             deepTraversal1(childrens)
@@ -16,11 +16,11 @@ function deepTraversal2 (node) {
     if (!node || node.length < 1) {
         return;
     }
-    var stack = [];
-    for (var i = 0; i < node.length; i++) {
+    let stack = [];
+    for (let i = 0; i < node.length; i++) {
         stack.push(node[i]);
     }
-    var item;
+    let item;
     while (stack.length) {
         item = stack.shift();
         console.log(item.name);
@@ -34,11 +34,11 @@ function wideTraversal (node) {
     if (!node || node.length < 1) {
         return
     }
-    var stack = [];
+    let stack = [];
     for (var i = 0; i < node.length; i++) {
         stack.push(node[i])
     }
-    var item;
+    let item;
     while (stack.length > 0) {
         item = stack.shift();
         console.log(item.name);

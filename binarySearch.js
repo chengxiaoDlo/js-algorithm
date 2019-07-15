@@ -1,6 +1,6 @@
 //------------------------------------------------二分查找（递归）------------------------------------------------
 function binarySearchWithRecursive (arr, key, low, high) {
-    var mid = Math.floor((low + high) / 2);
+    const mid = Math.floor((low + high) / 2);
     if (low > high) {
         return -1;
     }
@@ -14,7 +14,7 @@ function binarySearchWithRecursive (arr, key, low, high) {
 }
 //------------------------------------------------二分查找（非递归）------------------------------------------------
 function binarySearchWithoutRecursive (arr, key) {
-    var low = 0, high = arr.length - 1;
+    let low = 0, high = arr.length - 1;
     while (low <= high) {
         var mid = Math.floor((low + high) / 2);
         if (arr[mid] === key) {

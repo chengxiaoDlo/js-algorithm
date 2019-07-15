@@ -1,6 +1,6 @@
 //------------------------------------------------返回n个【2，32】的随机整数-----------------------------------------------
 function random1 (n) {
-    var arr = [], random;
+    let arr = [], random;
     while (arr.length < n) {
         random = Math.round(Math.random() * 30 + 2);
         if (arr.indexOf(random) === -1) {
@@ -12,7 +12,7 @@ function random1 (n) {
     });
 }
 function random2 (n) {
-    var arr = [];
+    let arr = [];
     while (arr.length < n) {
         for (var i = 0; i < n - arr.length; i++) {
             arr.push(Math.round(Math.random() * 30 + 2));
@@ -36,36 +36,35 @@ function dup2 (arr) {
 }
 //-------------------------------------------------------获取query参数---------------------------------------------------
 function getQueryParams1 () {
-    var query = location.search.substr(1);
-    var items = query.split('&');
-    var args = {};
+    const query = location.search.substr(1);
+    const items = query.split('&');
+    const args = {};
     items.forEach(function (item) {
-        var param = item.split('=');
-        var key = decodeURIComponent(param[0]);
-        var value = decodeURIComponent(param[1]);
+        const param = item.split('=');
+        const key = decodeURIComponent(param[0]);
+        const value = decodeURIComponent(param[1]);
         if (key) {
             args[key] = value;
         }
-    })
+    });
     return args;
 }
 function getQueryParams2 () {
-    var query = location.search.substr(1);
-    var args = {};
-    var reg = /([^?&=]+)=([^?&=]*)/g;
+    const query = location.search.substr(1);
+    const args = {};
+    const reg = /([^?&=]+)=([^?&=]*)/g;
     query.replace(reg, function (rs, $1, $2) {
-        var key = decodeURIComponent($1),
-        value = decodeURIComponent($2);
-        args[key] = value;
+        let key = decodeURIComponent($1);
+        args[key] = decodeURIComponent($2);
         return rs;
-    })
+    });
     return args
 }
 //------------------------------------------------将数字转化成金额格式-----------------------------------------------------
 function moneyFormat1 (num) {
-    var str = num.toString();
-    var money = '', count = 0;
-    for (var i = str.length - 1; i >= 0; i--) {
+    const str = num.toString();
+    let money = '', count = 0;
+    for (let i = str.length - 1; i >= 0; i--) {
         count++
         money = str.charAt(i) + money
         if (count % 3 === 0 && i !== 0) {
@@ -81,16 +80,16 @@ function moneyFormat2 (num) {
 }
 //------------------------------------------------找出现最多的字符-------------------------------------------------------
 function findMax (str) {
-    var charObj = {};
-    for (var i = 0; i < str.length; i++) {
+    const charObj = {};
+    for (let i = 0; i < str.length; i++) {
         if (!charObj[str.charAt(i)]) {
             charObj[str.charAt(i)] = 1
         } else {
             charObj[str.charAt(i)] += 1
         }
     }
-    var maxStr = '', maxLength = 1;
-    for (var k in charObj) {
+    let maxStr = '', maxLength = 1;
+    for (const k in charObj) {
         if (charObj.hasOwnProperty(k)) {
             if (charObj[k] > maxLength) {
                 maxLength = charObj[k];

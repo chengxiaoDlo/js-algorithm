@@ -1,15 +1,19 @@
 //------------------------------------------------深度优先（递归）------------------------------------------------
-function deepTraversal1 (node) {
-    if (!node || node.length < 1) {
-        return;
+function deepTraversal(node) {
+    if (!node || node.length === 0) {
+        return
     }
-    for (let i = 0; i < node.length; i++) {
-        const childrens = node.children;
-        console.log(node[i].name)
-        if (childrens && childrens.length > 0) {
-            deepTraversal1(childrens)
+    const result = [];
+    node.forEach(item => {
+        function map(data) {
+            result.push(data);
+            if (data.children && data.children.length > 0) {
+                data.children.forEach(child => map(child))
+            }
         }
-    }
+        map(item);
+    })
+    return result.join('')
 }
 //------------------------------------------------深度优先（非递归）------------------------------------------------
 function deepTraversal2 (node) {
